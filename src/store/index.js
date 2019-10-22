@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import apiService from '../service/apiService'
 
 Vue.use(Vuex)
 
@@ -19,10 +20,21 @@ export default new Vuex.Store({
     CLEAR_USER_DATA () {
       localStorage.removeItem('user')
       location.reload()
+    },
+    FETCH_USER_DATA (state, user) {
+      state.user = user
+      axios.defaults.headers.common['Authorization'] = `bearer ${
+        user.token
+      }`
     }
   },
   actions: {
-    register ({ commit }, { email, password }) {
+    register ({
+      commit
+    }, {
+      email,
+      password
+    }) {
       // console.log(...arguments)
       return axios({
         method: 'post',
@@ -37,16 +49,29 @@ export default new Vuex.Store({
         }
       })
         .then(
-          ({ data }) => {
+          ({
+            data
+          }) => {
             console.log('D A T A', data)
             commit('SET_USER_DATA', data)
           }
         )
     },
-    logout ({ commit }) {
+    FetchUsers ({ commit }) {
+      apiService.getUserInfo()
+        .then(response => {
+          console.log(response.data)
+          commit('FETCH_USER_DATA', response.data)
+        })
+        .catch(error => {
+          console.log(' FetchUsers there is an error', error.response)
+        })
+    },
+    logout ({
+      commit
+    }) {
       commit('CLEAR_USER_DATA')
     }
   },
-  modules: {
-  }
+  modules: {}
 })

@@ -38,7 +38,7 @@ export default {
       width: 100%;
       height: 110vh;
         @media only screen and (max-width: 480px) {
-          width: 373px;
+          width: 100vw;
           height: 185px;
         }
       }

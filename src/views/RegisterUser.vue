@@ -114,9 +114,9 @@ export default {
         font-size: 35px;
         color: rgb(13, 83, 245);
         @media only screen and (max-width: 480px) {
+          font-size: 21px;
           margin-block-start: 0em !important;
           margin-block-end: 0em !important;
-
         }
       }
     }
@@ -124,6 +124,9 @@ export default {
       .input-wrapper{
         position: relative;
         padding-bottom: 4rem;
+        @media only screen and (max-width: 480px){
+          padding-bottom: 1rem;
+        }
         cursor: pointer;
         input{
           width: 422px;
@@ -189,7 +192,7 @@ export default {
             border: 1px solid rgb(13, 83, 245);
           }
           @media only screen and (max-width: 480px) {
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             margin-left: 0;
             width: 100%;
             padding:0
