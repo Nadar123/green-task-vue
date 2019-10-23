@@ -97,9 +97,7 @@ export default {
     max-width: 75%;
     padding-top: 3rem;
     @media only screen and (max-width: 480px) {
-      max-width: 100%;
       padding-top: 0;
-      padding: 20px
     }
     .formtitle{
       padding-bottom: 4rem;
@@ -117,6 +115,9 @@ export default {
           font-size: 21px;
           margin-block-start: 0em !important;
           margin-block-end: 0em !important;
+        }
+        @media only screen and (max-width: 960px) {
+          font-size: 28px;
         }
       }
     }
@@ -145,10 +146,9 @@ export default {
             padding-top: 1rem;
             color: rgba(0,0,0,0.7);
           }
-          @media only screen and (max-width: 480px) {
-            width: 330px
+          @media only screen and (max-width: 960px) {
+            width: 100%;
           }
-
         }
         .mailInputInfo,
         .passwordInputInfo{
@@ -169,7 +169,7 @@ export default {
       .btn-register{
         padding-top: 1rem;
         @media only screen and (max-width: 480px) {
-          padding-top: 0;
+          padding-top: 2rem;
           text-align: center;
         }
         .login{
@@ -193,9 +193,13 @@ export default {
           }
           @media only screen and (max-width: 480px) {
             margin-bottom: 2rem;
-            margin-left: 0;
             width: 100%;
-            padding:0
+            padding:0;
+            width:100% !important;
+          }
+          @media only screen and (max-width: 960px) {
+            width: 100%;
+            margin-bottom: 2rem;
           }
         }
         .log-google{
@@ -221,6 +225,9 @@ export default {
           @media only screen and (max-width: 480px) {
             width: 100%;
             padding:0
+          }
+          @media only screen and (max-width: 960px) {
+            width: 100%;
           }
         }
       }

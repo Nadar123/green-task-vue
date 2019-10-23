@@ -39,9 +39,9 @@ export default {
        @media only screen and (max-width: 480px) {
          text-align: center;
        }
-      @media only screen and (max-width: 980px) {
-        padding: 20px;
-      }
+      // @media only screen and (max-width: 960px) {
+      //   padding: 20px;
+      // }
     .businesses-name{
       color: #18c746;
     }

@@ -1,14 +1,14 @@
 <template>
   <div class="home">
     <div class="row row-home">
-       <div class="col-lg-6">
+       <div class="col-lg-6 col-wrapper-1">
          <div class="big-img-wrapper">
             <div class="big-img">
             <img src="@/assets/green_login_page.svg"/>
          </div>
          </div>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-6 col-wrapper-2">
          <div class="logo" :style="{backgroundImage: `url(${backgroundImg})`}">
          </div>
         <RegisterUser/>
@@ -38,8 +38,7 @@ export default {
       width: 100%;
       height: 110vh;
         @media only screen and (max-width: 480px) {
-          width: 100vw;
-          height: 185px;
+          display: none;
         }
       }
       .logo{
@@ -58,4 +57,33 @@ export default {
       }
   }
 }
+
+@media only screen and (max-width: 1199px) {
+      .col-wrapper-1{
+        width: 40%
+      }
+      .col-wrapper-2{
+        width: 60%;
+      }
+ }
+
+ @media only screen and (max-width: 1000px) {
+  .col-wrapper-1{
+      width: 25%
+    }
+  .col-wrapper-2{
+    width: 75%;
+    .form-wrapper{
+      margin: auto !important;
+    }
+  }
+ }
+ @media only screen and (max-width: 480px) {
+   .col-wrapper-1{
+      width: 0%;
+    }
+  .col-wrapper-2{
+    width: 100%;
+  }
+ }
 </style>

@@ -30,9 +30,12 @@ export default {
   padding-top: 8rem;
   text-align: right;
   max-width: 75%;
+   @media only screen and (max-width: 960px){
+    max-width: 95%;
+  }
   @media only screen and (max-width: 480px){
-    max-width: 100%;
-    padding: 20px
+    max-width:100%;
+    padding-top: 4rem;
   }
   .green-invoice-wrapper-text{
     background-position: right;
@@ -42,11 +45,6 @@ export default {
   }
   .green-invoice-wrapper-text{
     margin-bottom: 0.5rem;
-     @media only screen and (max-width: 480px) {
-       text-align: center;
-       background-position: 225px;
-
-     }
     .rights-text{
       font-size: 13px;
       line-height: 13px;
@@ -74,7 +72,10 @@ export default {
       font-size: 13px;
       font-weight: 400;
       line-height: 13px;
-      color: #18c746
+      color: #18c746;
+      @media only screen and (max-width: 960px) {
+          padding-bottom: 0.5rem;
+      }
     }
   }
 }
