@@ -1,26 +1,17 @@
 <template>
   <div>
-    <div class="row">
-      <div class="col-lg-2">
-        <div class="side-bar-user">
-          <div class="user">
-            <BaseIcon name="user"/>
-            <h3> {{user.firstName}} </h3>
+  <app-nav />
+    <div dir="rtl" class="row">
+      <div class="col-lg-12 col-xs-12 page-width">
+        <div class="pager-content">
+          <div class="dashborad-wrapper">
+            <h4>   שלום {{user.firstName}}, ברוך הבא ל <span class="businesses-name">{{user.businesses[0].name}} </span>  </h4>
           </div>
-          <div class="side-bar-nav">
-            <app-nav />
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-10">
-        <div class="dashborad-wrapper">
-          “Hello, {{user.firstName}} welcome to your {{user.lastName}}.
         </div>
       </div>
     </div>
   </div>
 </template>
-
 <script>
 import AppNav from '@/components/AppNav'
 import { mapState } from 'vuex'
@@ -33,21 +24,27 @@ export default {
   components: { AppNav },
   created () {
     this.$store.dispatch('FetchUsers')
+    console.log()
   },
   computed: mapState(['userInfo'])
 }
 </script>
 <style lang="scss" scoped>
-.side-bar-user{
-  padding: 1.5rem;
-  min-height: 100vh;
-  border-right: 1px solid rgba(0,0,0,0.2);
-  .user{
-    h3{
-      margin-block-start: 0px;
-    margin-block-end: 0px;
-    color: rgba(0,0,0,0.4);
+  .page-width{
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 4rem;
+     .dashborad-wrapper{
+       color:darkgrey;
+       @media only screen and (max-width: 480px) {
+         text-align: center;
+       }
+      @media only screen and (max-width: 980px) {
+        padding: 20px;
+      }
+    .businesses-name{
+      color: #18c746;
     }
   }
-}
+  }
 </style>

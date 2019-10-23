@@ -17,7 +17,8 @@ export default new Vuex.Store({
         userData.token
       }`
     },
-    CLEAR_USER_DATA () {
+    CLEAR_USER_DATA (state) {
+      state.user = null
       localStorage.removeItem('user')
       location.reload()
     },
@@ -29,12 +30,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    register ({
-      commit
-    }, {
-      email,
-      password
-    }) {
+    register ({ commit }, { email, password }) {
       // console.log(...arguments)
       return axios({
         method: 'post',
@@ -44,7 +40,7 @@ export default new Vuex.Store({
           password
         },
         headers: {
-          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.VUZndHRzQzN6Ym4vVG1YL2JFWEVjUnlNMzZKNXpaN3BYQWdZQmxjcUg1SW9KU29EUHE4TllYMXkvcDFkZnNzQytPZ2RuWGR3WFQvR0ZrUG5GMzAvSWJwZFJWVm9kWUVBV0lOUlZoQ2NFUFkrc2tkVG9ia3hzd1hDYVNmVnY5RnlRdTBLRThBbEQ3QlgxZkdSQ0dGb2c1Q0MrdktNbFQwUk5ET1pLdHVlWWRsTnFCS2FlRTk3clVnSTltSjVRTllHN3lWQUxIbkdNN1JxajNsd0E3d2Q1cnRzY1N6eHRVbTd0WWhjVVBmais5Z0RHV2dsMUIyangzUGtqUUM2TS9YWg.0sQjU1_lZ5EIvD_eUBM4pwVp6zOD5PFcWZwrsRwWMyg`,
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.VUZndHRzQzN6Ym4vVG1YL2JFWEVjUnlNMzZKNXpaN3BYQWdZQmxjcUg1Sjh4V1ZFQnk3a3daRVdaY3dIYVluMDJvT1dhVkNiR2wySktpeis3K1VJN1FaRjFpYjhEcTJyUElYc1NTb2FNNG5BUExGcTBvWXRnelNuQlNBVDk3RVhlZVZyaWpTYVJUUnBzNEpoZVd6Z3pKdlF5Vml4Q212UG1XTzA2OVoyN1lHV1l4Y21kSy9RNEpVVytiY3lqeTc5aDZkemJUWUlRSXFJRWlZZXFZZTdxcTJPdFp1VDNDRWJGeGRkWi9WYSt4RS9ya2tjbmRTU0Z0c3NPK1drT0NMTQ.Nr-yVUzJhjb0OfFpqikORxZom_l0DV4JpXM4YFOyTUo`,
           'Content-Type': 'application/json'
         }
       })
@@ -67,9 +63,7 @@ export default new Vuex.Store({
           console.log(' FetchUsers there is an error', error.response)
         })
     },
-    logout ({
-      commit
-    }) {
+    logout ({ commit }) {
       commit('CLEAR_USER_DATA')
     }
   },

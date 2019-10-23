@@ -29,8 +29,18 @@ export default {
   font-size: 2rem;
   font-weight: 600;
   transition: 0.3s ease-in-out;
+  cursor: pointer;
   &:hover{
     color: #18c746;
+  }
+  svg{
+   @media only screen and (max-width: 480px) {
+     padding-left: 1rem;
+   }
+    @media only screen and (max-width: 480px) {
+      width: 24px !important;
+      height: 24px !important;
+    }
   }
 }
 .icon {
