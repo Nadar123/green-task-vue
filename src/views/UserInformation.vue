@@ -28,21 +28,6 @@
                 <span> עיר מגורים </span>
                 <p> {{user.businesses[0].city}} </p>
               </div>
-                <!-- <ul> -->
-                 <!-- <ul v-for="(businesses, index) in user.businesses" :key="index">
-                  <li v-for="(item, index) in businesses" :key="index">{{item}}</li> -->
-                  <!-- <li>Address {{business.address}}</li> -->
-                  <!-- {{business.address}} -->
-                   <!-- {{user.firstName}}
-                   {{user.lastName}}
-                    {{user.email}} -->
-                     <!-- adress:{{user.businesses[0].address}}
-                     name{{user.businesses[0].name}}
-                     {{user.businesses[0].city}} -->
-                     <!-- {{user.businesses[0].accountEmail}} -->
-                     <!-- {{user.businesses[0].taxId}} -->
-                <!-- </ul> -->
-                   <!-- {{user.businesses[0]}} -->
             </div>
           </div>
         </div>
@@ -63,7 +48,6 @@ export default {
   },
   created () {
     this.$store.dispatch('FetchUsers')
-    console.log()
   },
   computed: mapState(['userInfo'])
 }
@@ -109,7 +93,7 @@ export default {
 }
  @media only screen and (max-width: 480px) {
   .inner-row{
-    padding-bottom: 4rem;
+    padding-bottom: 8rem;
   }
 }
 </style>
